@@ -24,15 +24,17 @@ LOGGING = {
 }
 
 ############## 连接配置 ##############
-USER_MYSQL = '{engine}://{user}:{password}@{host}:{port}/{db}'.format(
+USER_MYSQL = '{engine}://{user}:{password}@{host}:{port}/{db}?charset=utf8&autocommit=true'.format(
     engine='mysql+pymysql',
     host=get_conf('user_mysql', 'host', CONFIG_PATH),
     port=int(get_conf('user_mysql', 'port', CONFIG_PATH)),
-    db="usercenter",
+    # db="new_usercenter",
+    # db="usercenter",
+    db="my_usercenter",
     user=get_conf('user_mysql', 'user', CONFIG_PATH),
     password=get_conf('user_mysql', 'password', CONFIG_PATH),
 )
-MYSQL = '{engine}://{user}:{password}@{host}:{port}/{db}'.format(
+MYSQL = '{engine}://{user}:{password}@{host}:{port}/{db}?charset=utf8&autocommit=true'.format(
     engine='mysql+pymysql',
     host=get_conf('mysql', 'host', CONFIG_PATH),
     port=get_conf('mysql', 'port', CONFIG_PATH),
@@ -40,5 +42,6 @@ MYSQL = '{engine}://{user}:{password}@{host}:{port}/{db}'.format(
     user=get_conf('mysql', 'user', CONFIG_PATH),
     password=get_conf('mysql', 'password', CONFIG_PATH),
 )
+
 print(USER_MYSQL)
 print(MYSQL)
